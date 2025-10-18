@@ -1,5 +1,5 @@
 import {  ProductPage } from "@/components/ProductPage";
-import { Product } from "@/types/type";
+import { Product } from "@/lib/type";
 import React from "react";
 
 type Params = {
