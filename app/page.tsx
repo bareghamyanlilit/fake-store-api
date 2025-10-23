@@ -1,4 +1,4 @@
-import { ProductsPage } from "@/components/Products";
+import { Products } from "@/components/Products";
 
 export default async function Home() {
   const res = await fetch("https://fakestoreapi.com/products", {
@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div>
-      <ProductsPage products={data} />
+      <Products products={data} />
     </div>
   );
 }

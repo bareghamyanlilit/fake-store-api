@@ -1,12 +1,12 @@
 "use client";
 
-import { Product } from "@/lib/type";
+import { ProductType } from "@/lib/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Pagination from "./Pagination";
 
-export function ProductsPage({ products }: { products: Product[] }) {
+export function Products({ products }: { products: ProductType[] }) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const productsCount = 8;
   const totalPages = products.length / productsCount;

@@ -1,5 +1,5 @@
-import {  ProductPage } from "@/components/ProductPage";
-import { Product } from "@/lib/type";
+import {  Product } from "@/components/Product";
+import { ProductType } from "@/lib/type";
 import React from "react";
 
 type Params = {
@@ -13,12 +13,12 @@ export default async function page({ params }: Params) {
   });
 
   if (!res.ok) throw new Error("Error");
-  const data: Product = await res.json();
+  const data: ProductType = await res.json();
 
   console.log(data);
   return (
     <div>
-      <ProductPage product={data}/>
+      <Product product={data}/>
     </div>
   );
 }

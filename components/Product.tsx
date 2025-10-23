@@ -1,10 +1,10 @@
-import { Product } from "@/lib/type";
+import { ProductType } from "@/lib/type";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export function ProductPage({ product }: { product: Product }) {
+export function Product({ product }: { product: ProductType }) {
   return (
     <div>
       <h1 className=" text-center text-4xl font-bold py-8 text-gray-600">
