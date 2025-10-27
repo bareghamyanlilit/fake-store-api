@@ -1,3 +1,5 @@
+'use client'
+import { useProducts } from "@/context/ProductsContext";
 import { ProductType } from "@/lib/type";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
@@ -5,14 +7,15 @@ import Link from "next/link";
 import React from "react";
 
 export function Product({ product }: { product: ProductType }) {
+  const { handleAddToBasket } = useProducts();
   return (
-    <div>
+    <div className="py-10">
       <h1 className=" text-center text-4xl font-bold py-8 text-gray-600">
         Product Page
       </h1>
       <div className=" w-[80%] m-auto grid grid-cols-2 h-[700px] p-6 shadow-2xl">
         <div className="prevBtn absolute ">
-          <Link href='/'>
+          <Link href="/">
             <ArrowLeft size={40} className="text-gray-600 cursor-pointer" />
           </Link>
         </div>
@@ -33,7 +36,14 @@ export function Product({ product }: { product: ProductType }) {
           <p className="text-lg text-blue-950 font-mono">
             {product.description}
           </p>
-          <span>{product.rating.rate}</span>
+          <span>Rate {product.rating.rate}</span>
+
+          <button
+            className="bg-blue-400 w-full p-5 rounded cursor-pointer hover:bg-blue-500"
+            onClick={() => handleAddToBasket(product)}
+          >
+            Add to basket - {product.price}$
+          </button>
         </div>
       </div>
     </div>

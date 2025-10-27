@@ -1,12 +1,14 @@
 "use client";
 
-import { ProductType } from "@/lib/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Pagination from "./Pagination";
+import { useProducts } from "@/context/ProductsContext";
 
-export function Products({ products }: { products: ProductType[] }) {
+export function Products() {
+  const { products, handleAddToBasket } = useProducts();
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const productsCount = 8;
   const totalPages = products.length / productsCount;
@@ -31,7 +33,7 @@ export function Products({ products }: { products: ProductType[] }) {
         {productsSliced.map((product) => (
           <div
             key={product.id}
-            className="p-4 w-[300px] h-[400px] rounded shadow-xl cursor-pointer hover:shadow-2xl"
+            className="p-4 w-[300px] h-[450px] rounded shadow-xl grid content-between hover:shadow-2xl"
           >
             <Link href={`/products/${product.id}`}>
               <Image
@@ -39,7 +41,7 @@ export function Products({ products }: { products: ProductType[] }) {
                 alt={product.title}
                 width={200}
                 height={200}
-                className="h-[300px] object-contain place-self-center"
+                className="h-[300px] object-contain place-self-center cursor-pointer "
               />
             </Link>
             <h2>
@@ -47,6 +49,12 @@ export function Products({ products }: { products: ProductType[] }) {
                 ? product.title.slice(0, 70) + "..."
                 : product.title}
             </h2>
+            <button
+              className="bg-blue-400 w-full p-1 rounded cursor-pointer hover:bg-blue-500"
+              onClick={() => handleAddToBasket(product)}
+            >
+              Add to basket - {product.price}$
+            </button>
           </div>
         ))}
       </div>
