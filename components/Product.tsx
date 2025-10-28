@@ -23,8 +23,8 @@ export function Product({ product }: { product: ProductType }) {
           <Image
             src={product.image}
             alt={product.title}
-            width={200}
-            height={200}
+            width={500}
+            height={500}
             className=" w-full h-full object-contain place-self-center"
           />
         </div>
@@ -39,7 +39,7 @@ export function Product({ product }: { product: ProductType }) {
           <span>Rate {product.rating.rate}</span>
 
           <button
-            className="bg-blue-400 w-full p-5 rounded cursor-pointer hover:bg-blue-500"
+            className="bg-blue-400 text-white w-full p-5 rounded cursor-pointer hover:bg-blue-500"
             onClick={() => handleAddToBasket(product)}
           >
             Add to basket - {product.price}$

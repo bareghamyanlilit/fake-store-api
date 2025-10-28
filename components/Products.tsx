@@ -50,7 +50,7 @@ export function Products() {
                 : product.title}
             </h2>
             <button
-              className="bg-blue-400 w-full p-1 rounded cursor-pointer hover:bg-blue-500"
+              className="bg-blue-400 text-white w-full p-1 rounded cursor-pointer hover:bg-blue-500"
               onClick={() => handleAddToBasket(product)}
             >
               Add to basket - {product.price}$
