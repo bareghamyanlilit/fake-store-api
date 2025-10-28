@@ -25,7 +25,7 @@ export function Products() {
 
   return (
     <div>
-      <h1 className=" text-center text-4xl font-bold py-8 text-gray-600">
+      <h1 className=" text-center text-4xl font-bold py-8 text-blue-950">
         Products
       </h1>
 

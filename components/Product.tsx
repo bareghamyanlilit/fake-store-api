@@ -10,7 +10,7 @@ export function Product({ product }: { product: ProductType }) {
   const { handleAddToBasket } = useProducts();
   return (
     <div className="py-10">
-      <h1 className=" text-center text-4xl font-bold py-8 text-gray-600">
+      <h1 className=" text-center text-4xl font-bold py-8 text-blue-950">
         Product Page
       </h1>
       <div className=" w-[80%] m-auto grid grid-cols-2 h-[700px] p-6 shadow-2xl">

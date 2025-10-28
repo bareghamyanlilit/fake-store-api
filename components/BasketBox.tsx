@@ -1,12 +1,14 @@
 "use client";
 import { useProducts } from "@/context/ProductsContext";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { BiBasket } from "react-icons/bi";
 
-export function Basket() {
+export function BasketBox() {
   const [isOpen, setIsOpen] = useState(false);
-  const { orders, handleIncr, handleDecr, handleDelete,totalPrice } = useProducts();
+  const { orders, handleIncr, handleDecr, handleDelete, totalPrice } =
+    useProducts();
 
   return (
     <div className="relative">
@@ -41,9 +43,19 @@ export function Basket() {
                       : order.title}
                   </h3>
                   <div className="flex items-center gap-3">
-                    <button className="cursor-pointer" onClick={() => handleDecr(order.id)}>-</button>
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => handleDecr(order.id)}
+                    >
+                      -
+                    </button>
                     <span>{order.quantity}</span>
-                    <button className="cursor-pointer"  onClick={() => handleIncr(order.id)}>+</button>
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => handleIncr(order.id)}
+                    >
+                      +
+                    </button>
                   </div>
                   <button
                     onClick={() => handleDelete(order.id)}
@@ -57,6 +69,9 @@ export function Basket() {
         </ul>
 
         <p>Total price: {totalPrice(orders)} $</p>
+        <Link href="/basket">
+          <button>See basket</button>
+        </Link>
       </div>
     </div>
   );
